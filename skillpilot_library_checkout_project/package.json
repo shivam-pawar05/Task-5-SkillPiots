@@ -1,0 +1,8 @@
+{
+  "name": "skillpilot-library-checkout",
+  "version": "1.0.0",
+  "description": "Library checkout with MySQL transactions, logging and exception handling",
+  "main": "server.js",
+  "scripts": {"start": "node server.js"},
+  "dependencies": {"dotenv": "^16.4.7", "express": "^4.21.2", "mysql2": "^3.12.0"}
+}

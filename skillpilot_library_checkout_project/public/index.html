@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SkillPilot | Library Checkout</title><link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar"><div class="brand"><span class="logo">L</span><div><b>LibraDesk</b><small>LIBRARY SYSTEM</small></div></div>
+<p class="nav-title">MAIN MENU</p>
+<button class="nav active" data-tab="overview">▦ &nbsp; Overview</button>
+<button class="nav" data-tab="books">▤ &nbsp; Books & Checkout</button>
+<button class="nav" data-tab="history">◷ &nbsp; Transaction History</button>
+<div class="side-info"><b>✓ Safe transactions</b><p>Book status and checkout logs are updated together in a MySQL transaction.</p></div>
+</aside>
+<main><header><div><small>LIBRARY MANAGEMENT / CHECKOUT</small><h1 id="page-title">Overview</h1></div><span id="date"></span></header>
+<div id="notice" class="notice hidden" role="status"></div>
+<section id="overview-tab" class="tab">
+<div class="hero"><div><span class="eyebrow">LIBRARY OPERATIONS</span><h2>Every book has a story.<br><em>Keep every checkout in order.</em></h2><p>Check availability, assign books to members, and log transactions safely.</p><button class="btn light" data-tab="books">Start a checkout →</button></div><div class="hero-books"><i></i><i></i><i></i><b>L</b></div></div>
+<div class="stats"><article><small>TOTAL BOOKS</small><strong id="total">—</strong><p>In the catalogue</p></article><article><small>AVAILABLE</small><strong id="available">—</strong><p>Ready to borrow</p></article><article><small>CHECKED OUT</small><strong id="checked">—</strong><p>With members</p></article><article><small>ACTIVE MEMBERS</small><strong id="members">—</strong><p>Registered borrowers</p></article></div>
+<div class="panel"><div class="panel-head"><div><h3>Library catalogue</h3><p>Current availability of books</p></div><button class="btn outline" data-tab="books">View all →</button></div><div class="scroll"><table><thead><tr><th>BOOK</th><th>AUTHOR</th><th>ISBN</th><th>STATUS</th></tr></thead><tbody id="overview-books"></tbody></table></div></div>
+</section>
+<section id="books-tab" class="tab hidden"><div class="intro"><div><h2>Books & Checkout</h2><p>Choose an available book and a library member.</p></div><span class="pill">✓ TRANSACTION-SAFE</span></div>
+<div class="panel"><div class="form-title"><span class="form-icon">↗</span><div><h3>Check out a book</h3><p>Validation, checkout logging and book status update run in one transaction.</p></div></div>
+<form id="checkout-form"><div><label for="book-select">Book</label><select id="book-select" required><option value="">Loading books…</option></select></div><div><label for="member-select">Borrower / member</label><select id="member-select" required><option value="">Loading members…</option></select></div><button class="btn primary" type="submit">Confirm checkout →</button></form>
+<div class="steps"><span>1 &nbsp; Validate book and member</span><span>2 &nbsp; Insert checkout log</span><span>3 &nbsp; Update status and commit</span></div></div>
+<div class="panel"><div class="panel-head"><div><h3>Book catalogue</h3><p>Return a checked-out book to make it available again.</p></div><input id="search" placeholder="Search title or author…"></div><div class="scroll"><table><thead><tr><th>BOOK</th><th>AUTHOR</th><th>ISBN</th><th>STATUS</th><th>BORROWER</th><th>ACTION</th></tr></thead><tbody id="books-body"></tbody></table></div></div></section>
+<section id="history-tab" class="tab hidden"><div class="intro"><div><h2>Transaction history</h2><p>Checkout and return records stored in MySQL.</p></div><button class="btn outline" id="refresh">↻ Refresh</button></div><div class="panel scroll"><table><thead><tr><th>TXN ID</th><th>BOOK</th><th>MEMBER</th><th>CHECKED OUT</th><th>RETURNED</th><th>STATUS</th></tr></thead><tbody id="history-body"></tbody></table></div></section>
+<footer>LibraDesk · SkillPilot Project <span>HTML · CSS · JavaScript · Node.js · MySQL</span></footer>
+</main></div><script src="/app.js"></script></body></html>
